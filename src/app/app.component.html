@@ -1,21 +1,78 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="navigation-bar">
+  <a class="nav-item" routerLink="/home">Home</a>
+  <a class="nav-item" routerLink="" (click)="open(login)"
+  *ngIf="!currentUser">Login</a>
+  <a class="nav-item" routerLink="" (click)="logout()"
+  *ngIf="currentUser">Logout</a>
+  <a class="nav-item" *ngIf="currentUser">Logged in as {{currentUser.email}}</a>
+  <a *ngIf="!currentUser" class="nav-item" routerLink="" (click)="open(signup)" >Sign Up</a>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<ng-template #login let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  	<form>
+	  	<div class="user-input">
+		  	<label>Email</label> <br />
+		    <input ng-change="emailChecker()" [(ngModel)]="email" name="email" />
+		  </div>
+  		<div class="user-input">
+  		    <label>Password</label> <br />
+  		    <input [(ngModel)]="password" name="password" type="password"/>
+  		</div>
+	</form>
+  </div>
+  <div class="modal-footer doggy">
+  	<button type="button" class="btn btn-outline-dark" (click)="c('login')">Login</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #signup let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Sign Up</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class='success-alert-txt'>
+        {{emailText}}
+      </div>
+      <div class="user-input">
+        <label>Email</label> <br />
+        <input ng-change="emailChecker()" [(ngModel)]="email" name="email" />
+      </div>
+      <div *ngIf="!passwordLengthChecker()" class="error-alert-txt">
+        <span>Password needs to be at least 8 characters</span>
+      </div>
+      <div class="user-input">
+          <label>Password</label> <br />
+          <input ng-change="passwordLengthChecker()" [(ngModel)]="password" name="password" type="password"/>
+      </div>
+      <div *ngIf="passwordMatch()" class="success-alert-txt">
+        <span>{{test}}</span>
+      </div>
+      <div class="user-input">
+          <label>Confirm Password</label> <br />
+          <input ng-change="passwordMatch()" [(ngModel)]="password2" name="password2" type="password"/>
+      </div>
+  </form>
+  </div>
+  <div class="modal-footer doggy">
+    <button type="button" class="btn btn-outline-dark" (click)="c('sign up')">Sign Up</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+  </div>
+</ng-template>
+
+<hr>
+
+<pre>{{closeResult}}</pre>
 <router-outlet></router-outlet>

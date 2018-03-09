@@ -1,0 +1,65 @@
+.doggy {
+	margin: auto;
+}
+
+.doggy button {
+	margin: 0 20px;
+}
+
+.modal-header {
+	background: #DF4747;
+}
+
+.modal-body {
+	margin: auto;
+}
+
+.modal-header h4 {
+	margin: auto;
+	text-align: right;
+	position: relative;
+	left: 65px;
+	font-size: 26px;
+}
+
+.user-input {
+	margin: 15px 0;
+}
+
+.navigation-bar {
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	background: #B9B5B5;
+}
+
+.nav-item {
+	color: white;
+	margin: 10px;
+	text-decoration: none;
+	letter-spacing: 1px;
+	padding: 0 8px;
+}
+
+.nav-item:hover {
+	border-bottom: 2px solid #DF4747;
+	padding-bottom: 5.5px;
+}
+
+.success-alert-txt {
+	color: lightgreen;
+	font-size: 12px;
+	letter-spacing: 0.5px;
+}
+
+.error-alert-txt {
+	color: red;
+	font-size: 12px;
+	letter-spacing: 0.5px;
+}
+
+.user-input input {
+	border-color: lightgreen;
+}
+
+
