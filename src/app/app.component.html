@@ -6,7 +6,7 @@
   <a class="nav-item" routerLink="" (click)="logout()"
   *ngIf="currentUser">Logout</a>
   <a class="nav-item" *ngIf="currentUser">Logged in as {{currentUser.email}}</a>
-  <a *ngIf="!currentUser" class="nav-item" routerLink="" (click)="open(signup)" >Sign Up</a>
+  <a *ngIf="!currentUser" class="nav-item" routerLink="" (click)="open(register)">Sign Up</a>
 </div>
 
 <ng-template #login let-c="close" let-d="dismiss">
@@ -20,7 +20,7 @@
   	<form>
 	  	<div class="user-input">
 		  	<label>Email</label> <br />
-		    <input ng-change="emailChecker()" [(ngModel)]="email" name="email" />
+		    <input [(ngModel)]="email" name="email" />
 		  </div>
   		<div class="user-input">
   		    <label>Password</label> <br />
@@ -34,7 +34,7 @@
   </div>
 </ng-template>
 
-<ng-template #signup let-c="close" let-d="dismiss">
+<ng-template #register let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title">Sign Up</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -43,8 +43,11 @@
   </div>
   <div class="modal-body">
     <form>
-      <div class='success-alert-txt'>
-        {{emailText}}
+      <div *ngIf="!emailChecker()" class='error-alert-txt'>
+        Email is taken
+      </div>
+      <div *ngIf="emailChecker()" class='success-alert-txt'>
+        Email is available
       </div>
       <div class="user-input">
         <label>Email</label> <br />
@@ -55,14 +58,13 @@
       </div>
       <div class="user-input">
           <label>Password</label> <br />
-          <input ng-change="passwordLengthChecker()" [(ngModel)]="password" name="password" type="password"/>
+          <input [(ngModel)]="password" name="password" type="password"/>
       </div>
       <div *ngIf="passwordMatch()" class="success-alert-txt">
-        <span>{{test}}</span>
       </div>
       <div class="user-input">
           <label>Confirm Password</label> <br />
-          <input ng-change="passwordMatch()" [(ngModel)]="password2" name="password2" type="password"/>
+          <input [(ngModel)]="password2" name="password2" type="password"/>
       </div>
   </form>
   </div>

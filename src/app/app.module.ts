@@ -11,14 +11,17 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesService } from './services/movies.service';
+import { RatingService } from './services/rating.service';
 import { UserService } from './services/user.service';
-
+import { ReviewService } from './services/review.service';
+import { MovieComponent } from './pages/movie/movie.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { UserService } from './services/user.service';
     FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [Angular2TokenService, MoviesService, UserService],
+  providers: [Angular2TokenService, MoviesService, UserService, RatingService, ReviewService, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,10 @@
+
+
+.movie img {
+	border: 4px solid #fff;
+	border-radius: 2px;
+}
+
+.movie img:hover {
+	cursor: pointer;
+}

@@ -10,4 +10,8 @@ export class MoviesService {
   getMovies() {
   	return this._tokenService.get('movies').map(res => res.json());
   }
+
+  getMovie(id) {
+  	return this._tokenService.get(`movies/${id}`).map(res => res.json());
+  }
 }

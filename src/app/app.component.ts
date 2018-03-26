@@ -20,14 +20,13 @@ export class AppComponent {
   password: string;
   password2: string;
   password_confirmation: string;
-  test: string;
 
   constructor(
   	private _tokenService: Angular2TokenService,
   	private modalService: NgbModal,
     private userService: UserService) {
   	this._tokenService.init({
-      apiBase: 'https://movie-review-api-backend.herokuapp.com/api/v1'
+      apiBase: 'http://localhost:3002/api/v1'
   	});
 
     this.userService.getEmails().subscribe((data) => {
@@ -35,30 +34,30 @@ export class AppComponent {
     })
   }
 
-  emailChecker() {
-    if (this.emails.includes(this.email)) {
-      console.log('taken');
-      return this.emailText = 'Email is taken';
-    } else {
-       console.log('taken');
-      return this.emailText = 'Email is available';
-     }
-  }
-
   passwordMatch() {
-    if (this.password2 == this.password && this.password.length > 0) {
-      return this.test = 'Password Matches';
-    }
+    // console.log('password!');
+    // if (this.password && this.password2 == this.password) {
+    //   return this.test = 'Password Matches';
+    // }
   }
 
   passwordLengthChecker() {
-    // if (this.password) {
-    //   if (this.password.length > 7) {
-    //     return true
-    //   } else {
-    //     return false;
-    //   }
-    // }
+      // console.log('key up boi!');
+      // if (this.password && this.password.length > 7) {
+      //   return true
+      // } else {
+      //   return false;
+      // }
+  }
+
+  emailChecker() {
+    // if (this.emails.includes(this.email)) {
+    //   console.log('taken');
+    //   return false;
+    // } else {
+    //   console.log('available');
+    //    return true;
+    //  }
   }
 
   login(credentials) {
@@ -88,12 +87,12 @@ export class AppComponent {
   }
 
 
-  open(content, test) {
+  open(content) {
   	this.modalService.open(content).result.then((result) => {
     		if (result == 'login') {
     			this.login({ email: this.email, password: this.password })
     		}
-        if (result == 'sign up') {
+        if (result == 'register') {
           this.signUp(
             { email: this.email, password: this.password, password_confirmation: this.password2 })
         }

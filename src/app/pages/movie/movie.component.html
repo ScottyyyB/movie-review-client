@@ -1,0 +1,15 @@
+<div>
+	<div>
+		<img [src]="movie.image" height="400" width="300" />
+	</div>
+	<div>
+		<form (ngSubmit)="createRating()">
+			<input [(ngModel)]="rating.number" type="number" placeholder="Rating 1 - 5" name="rating" />
+			<button type="submit">Add Rating</button>
+		</form>
+		<form (ngSubmit)="createReview()">
+			<textarea [(ngModel)]="review.body" placeholder="Type in your review" name="review"> </textarea>
+			<button type="submit">Add Review</button>
+		</form>
+	</div>
+</div>
