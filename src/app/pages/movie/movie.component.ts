@@ -33,13 +33,13 @@ export class MovieComponent implements OnInit {
         this.movie = data;
         console.log(this.movie);
         switch(true) {
-          case this.movie.id == 1:
+          case (this.movie.id == 1):
             this.movie.image = this.links[0];
             return;
-          case this.movie.id == 2:
+          case (this.movie.id == 2):
             this.movie.image = this.links[1];
             return;
-          case this.movie.id == 3:
+          case (this.movie.id == 3):
             this.movie.image = this.links[2];
             return;
         }
@@ -50,10 +50,10 @@ export class MovieComponent implements OnInit {
   createRating() {
     this.ratingService.postRating(this.id, this.rating).subscribe(
       data => {
-        console.log(data);
-        this.router.navigate(['home']);
+        console.log(data)
+        this.router.navigate(['home'])
       },
-      error => console.error(error);
+      error => console.error(error)
     );
   }
 
@@ -63,7 +63,7 @@ export class MovieComponent implements OnInit {
         console.log(data);
         this.router.navigate(['home']);
       },
-      err => console.error(err);
+      error => console.error(error)
     );
   }
 

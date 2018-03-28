@@ -1,0 +1,40 @@
+.movie-container {
+  margin: 50px auto;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(12, 1fr);
+  max-width: 800px;
+  min-width: 800px;
+  border-radius: 5px;
+/*  background-color: #E09D2F;
+*/}
+
+.movie-header {
+  width: 250px;
+  margin: auto;
+  grid-area: 1 / 1 / 2 / 13;
+}
+
+.movie-header img {
+}
+
+.movie-forms {
+  grid-area: 2 / 1 / 3 / 13;
+  margin: auto;
+}
+
+.form {
+  margin: 20px 0;
+}
+
+.form button {
+  display: block;
+}
+
+.btn-outline-light:hover {
+	background-color: #FEB641;
+}
+
+.btn-outline-light {
+  margin-top: 10px;
+}
+

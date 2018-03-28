@@ -1,3 +1,18 @@
+body, html {
+	margin: 0;
+	padding: 0;
+	border: 2px solid blue;
+}
+
+.close span {
+  font-size: 30px;
+}
+
+.close span:hover {
+	color: #FF1919;
+	font-size: 30px;
+}
+
 .doggy {
 	margin: auto;
 }
@@ -7,7 +22,7 @@
 }
 
 .modal-header {
-	background: #DF4747;
+	background: #0274DE;
 }
 
 .modal-body {
@@ -18,7 +33,9 @@
 	margin: auto;
 	text-align: right;
 	position: relative;
+	letter-spacing: 2px;
 	left: 65px;
+	color: white;
 	font-size: 26px;
 }
 
@@ -27,14 +44,15 @@
 }
 
 .navigation-bar {
-	margin: auto;
 	text-align: center;
 	padding: 20px;
-	background: #B9B5B5;
+	background: #fff;
+	border-bottom: 5px solid #E09B2F;
+
 }
 
 .nav-item {
-	color: white;
+	color: black;
 	margin: 10px;
 	text-decoration: none;
 	letter-spacing: 1px;
@@ -42,8 +60,8 @@
 }
 
 .nav-item:hover {
-	border-bottom: 2px solid #DF4747;
-	padding-bottom: 5.5px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid #0078F2;
 }
 
 .success-alert-txt {
@@ -58,8 +76,5 @@
 	letter-spacing: 0.5px;
 }
 
-.user-input input {
-	/*border: 3px solid green;*/
-}
 
 

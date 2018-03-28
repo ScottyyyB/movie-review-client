@@ -1,24 +1,20 @@
-<div class='home-container'>
-	<header class="movie-header">
-	</header>
-	<section class="movies-container" >
-		<div class="movie" *ngFor="let movie of movies">
-			<img [src]="movie.attributes.image" height="300" width="200" (click)="goToMovie(movie.id)"/>
-			<h2>
-				{{movie.attributes.title}}
-			</h2>
-			<p>
-				{{movie.attributes.body}}
-			</p>
-			<h3>
-				{{movie.attributes.director}}
-			</h3>
-			<h3>
-				{{movie.attributes.rating}}
-			</h3>
-			<h3>
-				{{movie.attributes['release-date']}}
-			</h3>
-		</div>
-	</section>
+<div class="movies-container" >
+	<div class="movie" id="movie-{{movie.id}}" *ngFor="let movie of movies">
+		<img [src]="movie.attributes.image" height="250" width="170" (click)="goToMovie(movie.id)"/>
+		<h2>
+			{{movie.attributes.title}}
+		</h2>
+		<p>
+			{{movie.attributes.body}}
+		</p>
+		<h3>
+			{{movie.attributes.director}}
+		</h3>
+		<h3>
+			{{movie.attributes.rating}}
+		</h3>
+		<h3>
+			{{movie.attributes['release-date']}}
+		</h3>
+	</div>
 </div>
