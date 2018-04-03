@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { StarRatingModule } from 'angular-star-rating';
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  starsCount = 5;
   title = 'app';
   closeResult: string;
   currentUser: any;
@@ -29,9 +32,19 @@ export class AppComponent {
       apiBase: 'http://localhost:3002/api/v1'
   	});
 
+    this._tokenService
+      .signOut()
+      .subscribe(
+        res => {console.log(res), this.currentUser = undefined}, 
+        error => console.error(error));
+
     this.userService.getEmails().subscribe((data) => {
       this.emails = data;
     })
+  }
+
+  ratingCheck() {
+    console.log(this.starsCount);
   }
 
   passwordMatch() {
@@ -90,11 +103,14 @@ export class AppComponent {
   open(content) {
   	this.modalService.open(content).result.then((result) => {
     		if (result == 'login') {
-    			this.login({ email: this.email, password: this.password })
+    			this.login(
+            { email: this.email, password: this.password }
+          )
     		}
-        if (result == 'register') {
+        if (result == 'sign up') {
           this.signUp(
-            { email: this.email, password: this.password, password_confirmation: this.password2 })
+            { email: this.email, password: this.password, password_confirmation: this.password2 }
+          )
         }
   	});
   }

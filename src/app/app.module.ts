@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { RatingModule } from 'ngx-rating';
+import { StarRatingModule } from 'angular-star-rating';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { Angular2TokenService } from 'angular2-token';
@@ -29,6 +32,8 @@ import { MovieComponent } from './pages/movie/movie.component';
     HttpModule,
     RouterModule,
     FormsModule,
+    RatingModule,
+    StarRatingModule.forRoot(),
     NgbModule.forRoot()
   ],
   providers: [Angular2TokenService, MoviesService, UserService, RatingService, ReviewService, HomeComponent],

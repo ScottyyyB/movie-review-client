@@ -6,15 +6,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
-	id: number;
-  rating = { number: undefined };
-  review = { body: undefined };
+export class MovieComponent implements OnInit {	
+  id: number;
+  rate = 5;
   movie: any;
   links = ["https://images-na.ssl-images-amazon.com/images/I/71PhjEaTZ6L._SY550_.jpg",
            "http://assets.nydailynews.com/polopoly_fs/1.3676319.1515327608!/img/httpImage/image.jpg_gen/derivatives/gallery_1200/star-wars-jedi-2017.jpg",
@@ -46,26 +46,6 @@ export class MovieComponent implements OnInit {
         console.log(this.movie);
       });
     }
-
-  createRating() {
-    this.ratingService.postRating(this.id, this.rating).subscribe(
-      data => {
-        console.log(data)
-        this.router.navigate(['home'])
-      },
-      error => console.error(error)
-    );
-  }
-
-  createReview() {
-    this.reviewService.postReview(this.id, this.review).subscribe(
-      data => {
-        console.log(data);
-        this.router.navigate(['home']);
-      },
-      error => console.error(error)
-    );
-  }
 
   ngOnInit() {
 

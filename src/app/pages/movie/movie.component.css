@@ -1,12 +1,14 @@
+ 
+
 .movie-container {
-  margin: 50px auto;
+  padding: 20px 0;
+  margin: 75px auto;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(12, 1fr);
-  max-width: 800px;
-  min-width: 800px;
-  border-radius: 5px;
-/*  background-color: #E09D2F;
-*/}
+  max-width: 600px;
+  min-width: 600px;
+  border-radius: 8px;
+}
 
 .movie-header {
   width: 250px;
@@ -15,15 +17,35 @@
 }
 
 .movie-header img {
+   border-radius: 5px;
+   border: 4px solid #FFC450;
 }
 
 .movie-forms {
   grid-area: 2 / 1 / 3 / 13;
-  margin: auto;
+  margin: 25px auto;
 }
 
 .form {
-  margin: 20px 0;
+  margin: 20px 20px;
+  display: inline-block;
+}
+
+.form textarea {
+  padding: 10px 5px;
+  width: 200px;
+}
+
+.form textarea:focus {
+  border: 2px solid gold;
+}
+
+#rating-form button {
+  margin: 20px auto;
+}
+
+#review-form button {
+  margin: 12px auto;
 }
 
 .form button {
@@ -31,10 +53,15 @@
 }
 
 .btn-outline-light:hover {
-	background-color: #FEB641;
+	background-color: #FFC450;
+  font-weight: 600;
 }
 
 .btn-outline-light {
   margin-top: 10px;
+  border-color: #FFC450;
+  border-width: 1.75px;
+  background-color: black;
+  letter-spacing: 1.5px;
 }
 

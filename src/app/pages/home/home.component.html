@@ -4,9 +4,7 @@
 		<h2>
 			{{movie.attributes.title}}
 		</h2>
-		<p>
-			{{movie.attributes.body}}
-		</p>
+		<rating [(ngModel)]="movie.attributes['average-rating']" [readonly]="true"></rating>
 		<h3>
 			{{movie.attributes.director}}
 		</h3>
@@ -16,5 +14,32 @@
 		<h3>
 			{{movie.attributes['release-date']}}
 		</h3>
+		<button (click)="open(reviewRating, movie.id)" class="btn btn-outline-light">Add Rating & Review</button>
 	</div>
+	
+
 </div>
+<ng-template #reviewRating let-c="close" let-d="dismiss">
+	<div class="modal-header">
+    	<h4 class="modal-title">Review & Rating</h4>
+    	<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      		<span aria-hidden="true">&times;</span>
+    	</button>
+  	</div>
+  	<div class="modal-body">
+  		<form>
+		  	<div class="user-input">
+			  	<label>Rating</label> <br />
+			  	 <rating [(ngModel)]="review.rating" name="rating" [disabled]="false"></rating>
+			</div>
+	  		<div class="user-input">
+	  		    <label>Review</label> <br />
+	  		    <textarea [(ngModel)]="review.body" name="body" placeholder="Type in your review" rows="10"> </textarea>
+	  		</div>
+		</form>
+  	</div>
+  	<div class="modal-footer doggy">
+	  	<button type="button" class="btn btn-outline-dark" (click)="c('movie')">Submit</button>
+	    <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+  </div>
+</ng-template>

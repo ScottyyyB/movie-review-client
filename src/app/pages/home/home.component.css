@@ -4,6 +4,10 @@ body {
 	margin: 0 50px;
 }
 
+.fa-star {
+  height: 10px;
+}
+
 .movie h2 {
   font-size: 16px;
   letter-spacing: 3px;
@@ -15,12 +19,67 @@ body {
   letter-spacing: 1.5px;
 }
 
-.movie h3, .movie h2, .movie p {
-  margin-top: 20px;
+.movie h3, .movie h2, .movie p, .movie rating {
+  margin: 20px auto;
   color: white;	
   padding-bottom: 10px;
   border-bottom: 1px solid #999999;
   width: 170px;
+}
+
+.movie h2 {
+  margin-bottom: 0px;
+}
+
+.movie rating {
+  height: 20px;
+}
+
+.doggy button {
+	margin: 0 20px;
+}
+
+.btn {
+  letter-spacing: 1px
+}
+
+.close span {
+  font-size: 30px;
+}
+
+.close span:hover {
+	color: #FF1919;
+	font-size: 30px;
+}
+
+.doggy {
+	margin: auto;
+}
+
+.modal-header {
+	background: #0274DE;
+}
+
+.modal-body {
+	margin: auto;
+}
+
+.modal-header h4 {
+	margin: auto;
+	text-align: right;
+	position: relative;
+	letter-spacing: 2px;
+	left: 65px;
+	color: white;
+	font-size: 26px;
+}
+
+.user-input {
+	margin: 15px 0;
+}
+
+.user-input textarea {
+  padding: 5px 8px;
 }
 
 .movie h2 {
@@ -33,11 +92,13 @@ body {
 	border: 3px solid #fff;
 	border-radius: 3px;
 	margin-bottom: 16px;
+	transition: transform .5s;
 
 }
 
 .movie img:hover {
 	cursor: pointer;
+	border: 5px solid #fff; transform: scale(1.09);
 }
 
 .navigation-bar {
@@ -46,7 +107,6 @@ body {
 
 .movies-container {
 	padding: 100px 0;
-	padding-right: 70px;
 	display: grid;
 	grid-template: repeat(1, 1fr) / repeat(12, 1fr);
 	max-width: 1000px;
@@ -55,10 +115,31 @@ body {
 }
 
 .movie {
-	width: 100px;
+	width: 200px;
 	margin: auto;
 	text-align: center;
 }
+
+.btn-outline-light:hover {
+  background-color: #FEB541;
+  border-color: #FFC450;
+  font-weight: 600;
+  letter-spacing: 1.75px;
+}
+
+.btn-outline-light {
+  font-size: 14px;
+  border-color: #1593FF;
+  border-width: 1.75px;
+  background-color: black;
+  letter-spacing: 1.75px;
+  color: #1593FF;
+}
+
+.movie button {
+  margin-top: 7px;
+}
+
 
 #movie-1 {
   grid-area: 1 / 1 / 2 / 5;

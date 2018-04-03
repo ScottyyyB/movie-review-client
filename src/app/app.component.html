@@ -1,12 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
 <div class="navigation-bar">
   <a class="nav-item" routerLink="/home">Home</a>
   <a class="nav-item" routerLink="" (click)="open(login)"
   *ngIf="!currentUser">Login</a>
   <a class="nav-item" routerLink="" (click)="logout()"
   *ngIf="currentUser">Logout</a>
-  <a class="nav-item" *ngIf="currentUser">Logged in as {{currentUser.email}}</a>
   <a *ngIf="!currentUser" class="nav-item" routerLink="" (click)="open(register)">Sign Up</a>
+  <a class="nav-item"*ngIf="currentUser">Logged in as <span id="logged-user">{{currentUser.email}}</span></a>
 </div>
 
 <ng-template #login let-c="close" let-d="dismiss">
