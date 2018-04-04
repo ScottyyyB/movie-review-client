@@ -10,4 +10,8 @@ export class ReviewService {
   postReview(movieId, data) {
   	return this._tokenService.post(`movies/${movieId}/reviews`, data).map(data => data);
   }
+
+  getReviews(movieId) {
+  	return this._tokenService.get(`movies/${movieId}/reviews`).map(res => res.json());
+  }
 }
